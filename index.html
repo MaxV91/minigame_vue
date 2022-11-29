@@ -20,17 +20,17 @@
   <section id="monster" class="container">
     <h2>Здоровье монстра</h2>
     <div class="healthbar">
-      <div class="healthbar__value"></div>
+      <div class="healthbar__value" :style="monsterBarStyles"></div>
     </div>
   </section>
   <section id="player" class="container">
     <h2>Ваше здоровье</h2>
     <div class="healthbar">
-      <div class="healthbar__value"></div>
+      <div class="healthbar__value" :style="playerBarStyles"></div>
     </div>
   </section>
   <section id="controls">
-    <button>Атака</button>
+    <button @click="attackMonster">Атака</button>
     <button>Специальная атака</button>
     <button>Лечение</button>
     <button>Ослабление</button>

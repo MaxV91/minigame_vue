@@ -31,8 +31,8 @@
   </section>
   <section id="controls">
     <button @click="attackMonster">Атака</button>
-    <button>Специальная атака</button>
-    <button>Лечение</button>
+    <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">Специальная атака</button>
+    <button @click="healPlayer">Лечение</button>
     <button>Ослабление</button>
   </section>
   <section id="log" class="container">

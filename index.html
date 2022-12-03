@@ -29,11 +29,18 @@
       <div class="healthbar__value" :style="playerBarStyles"></div>
     </div>
   </section>
-  <section id="controls">
+  <section class="container" v-if="winner">
+    <h2>Game Over!</h2>
+    <h3 v-if="winner === 'monster'">Вы проиграли!</h3>
+    <h3 v-else-if="winner === 'player'">Вы победили!</h3>
+    <h3 v-else>Ничья!</h3>
+    <button @click="startGame">Новая игра</button>
+  </section>
+  <section id="controls" v-else>
     <button @click="attackMonster">Атака</button>
     <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">Специальная атака</button>
     <button @click="healPlayer">Лечение</button>
-    <button>Ослабление</button>
+    <button @click="surrender">Сдаться</button>
   </section>
   <section id="log" class="container">
     <h2>Лог урона</h2>

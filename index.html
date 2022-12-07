@@ -44,7 +44,15 @@
   </section>
   <section id="log" class="container">
     <h2>Лог урона</h2>
-    <ul></ul>
+    <ul>
+      <li v-for="logMessage in logMessages">
+        <span :class="{'log--player': logMessage.actionBy === 'игрок', 'log--monster': logMessage.actionBy === 'монстр'}">{{ logMessage.actionBy === 'игрок' ? 'Игрок ' : 'Монстр ' }}</span>
+        <span v-if="logMessage.actionType === 'лечение'"> Лечит себя <span class="log--heal">{{ logMessage.actionValue }}</span></span>
+        <span v-else>
+          Атакует и наносит <span class="log--damage">{{ logMessage.actionValue }}</span>
+        </span>
+      </li>
+    </ul>
   </section>
 </div>
 </body>
